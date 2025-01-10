@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stars - The Universe Blog</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0b1a2b;
+            color: #e0e0e0;
+        }
+        header {
+            background: linear-gradient(90deg, #1a73e8, #4285f4);
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #122b45;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            background-color: #1a73e8;
+            transform: scale(1.1);
+        }
+        nav a.active {
+            background-color: #1a73e8;
+        }
+        .content {
+            padding: 30px;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: auto;
+            text-align: justify;
+        }
+        .marquee {
+            background-color: #122b45;
+            color: #00d4ff;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #122b45;
+            color: #fff;
+            margin-top: 30px;
+        }
+        .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        .cta-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #1a73e8;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: #4285f4;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>Discover Stars</h1>
+</header>
+
+<nav>
+    <a href="Universe-Blog.html">Home</a>
+    <a href="galaxies.html">Galaxies</a>
+    <a href="stars.html">Stars</a>
+    <a href="blackholes.html">Black Holes</a>
+    <a href="contact.html">Contact Me</a>
+</nav>
+
+<div class="content">
+    <h2>What Are Stars?</h2>
+    <p>Stars are massive celestial bodies made mostly of hydrogen and helium, undergoing nuclear fusion to produce light and heat. They form in clouds of gas and dust, and their life cycle ranges from millions to billions of years.</p>
+
+    <div class="marquee">
+        <marquee behavior="scroll" direction="left">Fun Fact: The closest star to Earth, other than the Sun, is Proxima Centauri!</marquee>
+    </div>
+
+    <h3>Types of Stars</h3>
+    <ul>
+        <li><span class="highlight">Main Sequence Stars:</span> These stars are in the most stable phase of their life cycle, like our Sun.</li>
+        <li><span class="highlight">Red Giants:</span> Older stars that have expanded and cooled as they run out of fuel.</li>
+        <li><span class="highlight">Neutron Stars:</span> Extremely dense stars formed from the remnants of supernova explosions.</li>
+    </ul>
+
+    <div class="image-section">
+        <img src="Star.jpg" alt="A stunning view of a star cluster">
+        <p>A mesmerizing star cluster.</p>
+    </div>
+
+    <a href="blackholes.html" class="cta-button">Explore Black Holes Next</a>
+</div>
+
+<footer>
+    <p>&copy; 2025 The Universe Blog. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
