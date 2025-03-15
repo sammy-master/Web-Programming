@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Photo Gallery</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    header {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #007BFF, #00d4ff);
+        color: white;
+        font-size: 24px;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 20px;
+    }
+    .gallery-item {
+        text-align: center;
+    }
+    .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 3px solid #ddd;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery img:hover {
+        transform: scale(1.08);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .description {
+        font-size: 14px;
+        color: #555;
+        margin-top: 5px;
+    }
+    @media (max-width: 600px) {
+        .gallery {
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+<h1>Food Photo Gallery</h1>
+</header>
+<main>
+<div class="gallery">
+    <div class="gallery-item"><img src="big-sandwich-hamburger-burger-with-beef-red-onion-tomato-fried-bacon.jpg" alt="Burger"><p class="description">Juicy cheeseburger with fresh toppings</p></div>
+    <div class="gallery-item"><img src="front-view-delicious-cheese-pizza-consists-olives-pepper-tomatoes-dark-surface.jpg" alt="Pizza"><p class="description">Delicious pepperoni pizza</p></div>
+    <div class="gallery-item"><img src="penne-pasta.jpg" alt="Pasta"><p class="description">Creamy Alfredo pasta</p></div>
+    <div class="gallery-item"><img src="maki-sushi-isolated-white.jpg" alt="Sushi"><p class="description">Assorted sushi platter</p></div>
+    <div class="gallery-item"><img src="tasty-vanilla-ice-scoops-bowl-blue-wooden-rustic-table-closeup.jpg" alt="Ice Cream"><p class="description">Chocolate ice cream sundae</p></div>
+    <div class="gallery-item"><img src="top-view-tasty-salad-with-vegetables.jpg" alt="Salad"><p class="description">Fresh garden salad</p></div>
+    <div class="gallery-item"><img src="beef-steak-with-french-fries-sour-cream-mayonnaise-sauce-herbs-wooden-plate.jpg" alt="Steak"><p class="description">Grilled steak with herbs</p></div>
+    <div class="gallery-item"><img src="mexican-tacos-with-beef-beans-tomato-sauce-salsa.jpg" alt="Tacos"><p class="description">Spicy Mexican tacos</p></div>
+    <div class="gallery-item"><img src="close-up-donuts-with-frosting.jpg" alt="Donuts"><p class="description">Glazed and chocolate donuts</p></div>
+    <div class="gallery-item"><img src="front-view-delicious-cheese-pizza-consists-olives-pepper-tomatoes-dark-surface.jpg" alt="Noodles"><p class="description">Hot and spicy ramen</p></div>
+    <div class="gallery-item"><img src="front-view-delicious-ham-sandwiches-inside-plate-with-french-fries-dark-surface.jpg" alt="Sandwich"><p class="description">Club sandwich with fresh veggies</p></div>
+    <div class="gallery-item"><img src="vertical-shot-delicious-cupcakes-with-cream-cherries-top-vintage-books.jpg" alt="Cupcake"><p class="description">Chocolate and vanilla cupcakes</p></div>
+    <div class="gallery-item"><img src="fried-potatoes-with-ketchup-mayonnaise-isolated-white-background.jpg" alt="Fries"><p class="description">Crispy golden fries</p></div>
+    <div class="gallery-item"><img src="front-view-delicious-ham-sandwiches-inside-plate-with-french-fries-dark-surface.jpg" alt="Pancakes"><p class="description">Fluffy pancakes with syrup</p></div>
+    <div class="gallery-item"><img src="pexels-catscoming-674574.jpg" alt="Curry"><p class="description">Spicy Indian curry</p></div>
+    <div class="gallery-item"><img src="pexels-marta-dzedyshko-1042863-2067396.jpg" alt="Brownies"><p class="description">Chewy chocolate brownies</p></div>
+    <div class="gallery-item"><img src="pexels-leah-rolando-2394241-4112870.jpg" alt="Smoothie"><p class="description">Berry smoothie with yogurt</p></div>
+    <div class="gallery-item"><img src="pexels-catscoming-955137.jpg" alt="Dumplings"><p class="description">Steamed dumplings with sauce</p></div>
+    <div class="gallery-item"><img src="pexels-anuragganguly-789327.jpg" alt="Waffles"><p class="description">Belgian waffles with fruit</p></div>
+    <div class="gallery-item"><img src="pexels-pixabay-60616.jpg" alt="Fried Chicken"><p class="description">Crispy fried chicken</p></div>
+    <div class="gallery-item"><img src="pexels-chalo-556042-1657343.jpg" alt="Muffins"><p class="description">Blueberry muffins</p></div>
+    <div class="gallery-item"><img src="pexels-foodie-factor-162291-539451.jpg" alt="Soup"><p class="description">Hot vegetable soup</p></div>
+    <div class="gallery-item"><img src="pexels-tonyleong81-2092916.jpg" alt="Biryani"><p class="description">Fragrant biryani rice</p></div>
+    <div class="gallery-item"><img src="pexels-brent-keane-181485-1702373.jpg" alt="Cakes"><p class="description">Assorted cakes and pastries</p></div>
+    <div class="gallery-item"><img src="pexels-asphotograpy-103566.jpg" alt="Milkshake"><p class="description">Chocolate milkshake</p></div>
+    <div class="gallery-item"><img src="pexels-caleboquendo-3023479.jpg" alt="Hot Dog"><p class="description">Classic American hot dog</p></div>
+    <div class="gallery-item"><img src="pexels-ovidiu-creanga-451334-1495534.jpg" alt="Cereal"><p class="description">Healthy breakfast cereal</p></div>
+    <div class="gallery-item"><img src="pexels-cescrz-3185509.jpg" alt="Cheesecake"><p class="description">Strawberry cheesecake</p></div>
+    <div class="gallery-item"><img src="pexels-pixabay-302468.jpg" alt="Pudding"><p class="description">Chocolate pudding</p></div>
+    <div class="gallery-item"><img src="pexels-jaulani7-2765875.jpg" alt="Lasagna"><p class="description">Cheesy baked lasagna</p></div>
+</div>
+</main>
+</body>
+</html>
