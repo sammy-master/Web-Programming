@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Table</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styling */
+        .header-row {
+            background-color: orange !important;
+            font-weight: bold;
+        }
+        .dark-row {
+            background-color: #e2a971 !important; /* Darker peach */
+        }
+        .light-row {
+            background-color: #e2a971 !important; /* Light peach */
+        }
+        td {
+            text-align: center;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <table class="table table-bordered">
+        <!-- First Row: Header -->
+        <tr>
+            <td colspan="3" class="header-row">First Frame: Name and address</td>
+        </tr>
+        <!-- Second Row -->
+        <tr class="dark-row">
+            <td>Second frame</td>
+            <td>Third frame</td>
+            <td></td> <!-- Added an empty cell to maintain column consistency -->
+        </tr>
+        <!-- Third Row -->
+        <tr class="light-row">
+            <td>Bulleted list of qualifications</td>
+            <td>Links to favourite sites</td>
+            <td></td> <!-- Added an empty cell to maintain column consistency -->
+        </tr>
+        <!-- Fourth Row -->
+        <tr class="dark-row">
+            <td>Fourth frame</td>
+            <td>Fifth frame</td>
+            <td>Sixth frame</td>
+        </tr>
+        <!-- Fifth Row -->
+        <tr class="light-row">
+            <td>Scrolling message</td>
+            <td>Blinking reminders</td>
+            <td>Image</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
