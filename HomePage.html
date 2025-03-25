@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Hub - College Project Exhibition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+            animation: diagonalSlide 20s linear infinite;
+        }
+        
+        @keyframes diagonalSlide {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        /* Featured Games Slider */
+        .featured-slider {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 500px;
+        }
+        
+        .swiper-slide {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+        
+        .swiper-slide::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 40%);
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            color: white;
+            width: 100%;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .swiper-slide-active .slide-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .slide-content h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .slide-content p {
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+        
+        .slide-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .slide-btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .swiper-pagination-bullet {
+            background: white;
+            opacity: 0.6;
+            width: 12px;
+            height: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: var(--secondary);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        
+        /* All Games Container */
+        .all-games {
+            margin: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            display: inline-block;
+            font-size: 2rem;
+            color: var(--primary);
+            background: white;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--secondary), transparent);
+            z-index: 1;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .game-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        .game-card:nth-child(1) { animation-delay: 0.2s; }
+        .game-card:nth-child(2) { animation-delay: 0.4s; }
+        .game-card:nth-child(3) { animation-delay: 0.6s; }
+        .game-card:nth-child(4) { animation-delay: 0.8s; }
+        .game-card:nth-child(5) { animation-delay: 1.0s; }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .game-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.3));
+        }
+        
+        .game-score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+        }
+        
+        .game-score i {
+            margin-right: 5px;
+        }
+        
+        .game-info {
+            padding: 1.5rem;
+        }
+        
+        .game-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .game-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .game-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .play-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .play-btn:hover {
+            background-color: var(--primary);
+        }
+        
+        nav {
+            background: var(--dark);
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .swiper {
+                height: 350px;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Arcade Hub</div>
+        <div class="tagline">A Collection of Classic Games - College Project Exhibition</div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo-small">Arcade Hub</div>
+            <div class="nav-links">
+                <a href="HomePage.html">Home</a>
+                <a href="About.html">About Project</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Featured Games Slider -->
+        <div class="featured-slider">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1: Snake Game -->
+                    <div class="swiper-slide" style="background-image: url('https://cdn.discordapp.com/attachments/1307720699317714955/1354136352945606811/image.png?ex=67e43141&is=67e2dfc1&hm=9db6e84eb058b9f169b5b425162eac2a85989cc1998e4177b8598c174550d8de&');">
+                        <div class="slide-content">
+                            <h3>Snake Game</h3>
+                            <p>The classic snake game where you guide a growing snake to eat food while avoiding obstacles and yourself. Test your reflexes and strategy!</p>
+                            <a href="snake.html" class="slide-btn">Play Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2: Tic Tac Toe -->
+                    <div class="swiper-slide" style="background-image: url('https://cdn.discordapp.com/attachments/1307720699317714955/1354138277619302410/images.png?ex=67e4330c&is=67e2e18c&hm=999b7dc8c73e51c9f0cc1f1db298b34424566b8942c85c8f91ab43e60ce32171&');">
+                        <div class="slide-content">
+                            <h3>Tic Tac Toe</h3>
+                            <p>The timeless strategy game for two players. Outsmart your opponent to get three in a row in this battle of wits!</p>
+                            <a href="tictactoe.html" class="slide-btn">Play Now</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3: Memory Game -->
+                    <div class="swiper-slide" style="background-image: url('https://cdn.discordapp.com/attachments/1307720699317714955/1354139800608702565/images_1.png?ex=67e43477&is=67e2e2f7&hm=ebd6dc8ed521c7710fde1930a4c7b406ce0220e3713d99bf148539d7ab545d54&');">
+                        <div class="slide-content">
+                            <h3>Memory Game</h3>
+                            <p>Test your memory skills by matching pairs of cards. The faster you complete the game, the higher your score!</p>
+                            <a href="Memory.html" class="slide-btn">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        
+        <!-- All Games Container -->
+        <div class="all-games">
+            <div class="section-title">
+                <h2>All Games</h2>
+            </div>
+            
+            <div class="games-grid">
+                <!-- Game 1: Snake -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://cdn.discordapp.com/attachments/1307720699317714955/1354136352945606811/image.png?ex=67e43141&is=67e2dfc1&hm=9db6e84eb058b9f169b5b425162eac2a85989cc1998e4177b8598c174550d8de&');">
+                        <div class="game-score">
+                            <i class="fas fa-trophy"></i> High: 1420
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Snake Game</h3>
+                        <p>Guide the snake to eat food and grow longer while avoiding walls and yourself. How long can you survive?</p>
+                        <div class="game-actions">
+                            <a href="snake.html" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 2: Tic Tac Toe -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://cdn.discordapp.com/attachments/1307720699317714955/1354136405311357001/images.png?ex=67e4314d&is=67e2dfcd&hm=707b1dd8ff7d0d2ce3c784e6bec91fb22a32d3a01870920c056a58909c82b491&');">
+                        <div class="game-score">
+                            <i class="fas fa-trophy"></i> Wins: 15
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Tic Tac Toe</h3>
+                        <p>The classic strategy game. Play against the computer or a friend and try to get three in a row!</p>
+                        <div class="game-actions">
+                            <a href="tictactoe.html" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 3: Memory Game -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://cdn.discordapp.com/attachments/1307720699317714955/1354136652338958406/images.png?ex=67e43188&is=67e2e008&hm=84c36233e5b174609626cdd084bd38262e9f4bcfe790475af7a140c79d1916d2&');">
+                        <div class="game-score">
+                            <i class="fas fa-trophy"></i> Best: 24s
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Memory Game</h3>
+                        <p>Test your memory by matching pairs of cards. Find all matches with the fewest flips possible!</p>
+                        <div class="game-actions">
+                            <a href="Memory.html" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 4: Rock Paper Scissors -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://cdn.discordapp.com/attachments/1307720699317714955/1354136837421006858/2Q.png?ex=67e431b4&is=67e2e034&hm=77b16c0adb9d61ab0289a3355a28609a1480f0acf44b80072e3f7fced8b0c6ac&');">
+                        <div class="game-score">
+                            <i class="fas fa-trophy"></i> Streak: 8
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Rock Paper Scissors</h3>
+                        <p>The classic hand game. Can you outsmart the computer in this game of chance and psychology?</p>
+                        <div class="game-actions">
+                            <a href="rps.html" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 5: Tetris -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://cdn.discordapp.com/attachments/1307720699317714955/1354137805416300634/9k.png?ex=67e4329b&is=67e2e11b&hm=f36fcab2d5662b66c5b7c9cb43b6edb3c145d42d5976dfaa6c0270f00b1b1157&');">
+                        <div class="game-score">
+                            <i class="fas fa-trophy"></i> High: 15,240
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Tetris</h3>
+                        <p>The iconic tile-matching puzzle. Rotate and place falling blocks to complete lines and score points.</p>
+                        <div class="game-actions">
+                            <a href="tetris.html" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <h3>Arcade Hub</h3>
+            <p>A college project exhibition by Saksham, Vedant, Tanmay & Utkarsh</p>
+            <div class="social-links">
+                <a href="mailto:saksham.sharma24@pcu.edu.in"><i class="fas fa-envelope"></i></a>
+                            <a href="https://www.linkedin.com/in/saksham-sharma-14sept/"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/sammy-master"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+        });
+    </script>
+</body>
+</html>
