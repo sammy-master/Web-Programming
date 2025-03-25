@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #282c34;
+    color: white;
+}
+h1 {
+    font-size: 2em;
+    margin-top: 20px;
+}
+.game-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 50px;
+}
+.player {
+    background: #444;
+    padding: 20px;
+    border-radius: 10px;
+}
+button {
+    font-size: 1.2em;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #666;
+}
+.reset-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.reset-btn:hover {
+    background-color: #e64a19;
+}
